@@ -30,12 +30,12 @@ export default function BlogPage({ params }) {
             <Image
               src={assets.logo}
               width={180}
-              alt=""
+              alt="logo"
               className="w-[130px] sm:w-auto"
             />
           </Link>
           <button className="flex items-center gap-2 font-medium py-1 px-3 sm:py-3 sm:px-6 border border-black  ">
-            Get started <Image src={assets.arrow} alt="" />
+            Get started <Image src={assets.arrow} alt="arrow" />
           </button>
         </div>
         <div className="text-center my-24">
@@ -47,7 +47,7 @@ export default function BlogPage({ params }) {
             src={data.authorImg}
             width={60}
             height={60}
-            alt=""
+            alt="author"
           />
           <p className="mt-1 pb-2 text-lg max-w-[740px] mx-auto">
             {data.author}
@@ -60,7 +60,7 @@ export default function BlogPage({ params }) {
           src={data.image}
           width={800}
           height={480}
-          alt=""
+          alt="blog"
         />
 
         <div
@@ -72,9 +72,13 @@ export default function BlogPage({ params }) {
             Share this article on social media
           </p>
           <div className="flex">
-            <Image src={assets.facebook_icon} width={50} alt="" />
-            <Image src={assets.twitter_icon} width={50} alt="" />
-            <Image src={assets.googleplus_icon} width={50} alt="" />
+            <Image src={assets.facebook_icon} width={50} alt="facebook icon" />
+            <Image src={assets.twitter_icon} width={50} alt="twitter icon" />
+            <Image
+              src={assets.googleplus_icon}
+              width={50}
+              alt="google plus icon"
+            />
           </div>
         </div>
       </div>

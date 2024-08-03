@@ -67,7 +67,7 @@ export default function AddBlogPage() {
             src={!image ? assets.upload_area : URL.createObjectURL(image)}
             width={140}
             height={70}
-            alt=""
+            alt="upload"
           />
         </label>
         <input

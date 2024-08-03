@@ -26,11 +26,11 @@ const Header = () => {
         <Image
           src={assets.logo}
           width={180}
-          alt=""
+          alt="logo"
           className="w-[130px] sm:w-auto"
         />
         <button className="flex items-center gap-2 font-medium py-1 px-3 sm:py-3 sm:px-6 border border-solid border-black  ">
-          Get started <Image src={assets.arrow} />
+          Get started <Image src={assets.arrow} alt="arrow" />
         </button>
       </div>
       <div className="text-center my-8">
