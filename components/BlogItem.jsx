@@ -19,11 +19,11 @@ const BlogItem = ({ title, description, category, image, id }) => {
         {category}
       </p>
       <div className="p-5">
-        <h5 className="mb-2 text-lg font-medium tracking-tight text-gray-900">
+        <h5 className="mb-2 text-lg font-medium tracking-tight text-gray-900 line-clamp-2">
           {title}
         </h5>
         <p
-          className="mb-3 text-sm tracking-tight text-gray-700"
+          className="mb-3 text-sm tracking-tight text-gray-700 line-clamp-3"
           dangerouslySetInnerHTML={{ __html: description.slice(0, 120) }}
         ></p>
         <Link
