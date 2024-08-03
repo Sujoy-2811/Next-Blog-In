@@ -1,7 +1,3 @@
-import { blog_data } from "@/assets_test/assets";
-// import React, { useEffect, useState } from "react";
-import BlogItem from "./BlogItem";
-import axios from "axios";
 import BlogItemPulseEffect from "./BlogItemPulseEffect";
 
 const BlogListPulseEffect = () => {

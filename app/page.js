@@ -1,9 +1,7 @@
 "use client";
-import BlogList from "@/Components/BlogList";
-import BlogListPulseEffect from "@/Components/BlogListPulseEffect";
+import BlogList from "@/components/BlogList";
 import Footer from "@/Components/Footer";
 import Header from "@/Components/Header";
-import { Suspense } from "react";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 

@@ -1,6 +1,6 @@
 "use client";
-import { assets, blog_data } from "@/assets_test/assets";
-import Footer from "@/Components/Footer";
+import { assets, blog_data } from "@/assets/assets";
+import Footer from "@/components/Footer";
 import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";

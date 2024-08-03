@@ -1,4 +1,4 @@
-import { assets } from "@/assets_test/assets";
+import { assets } from "@/assets/assets";
 import axios from "axios";
 import Image from "next/image";
 import React, { useState } from "react";
