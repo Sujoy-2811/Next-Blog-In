@@ -1,4 +1,4 @@
-import { assets, blog_data } from "@/Assets/assets";
+import { assets, blog_data } from "@/assets_test/assets";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
