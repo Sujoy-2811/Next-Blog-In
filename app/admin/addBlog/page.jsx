@@ -38,7 +38,7 @@ export default function AddBlogPage() {
 
     const formData = new FormData();
     formData.append("title", data.title);
-    formData.append("description", data.description);
+    formData.append("description", description);
     formData.append("category", data.category);
     formData.append("author", data.author);
     formData.append("authorImg", data.authorImg);
@@ -91,16 +91,6 @@ export default function AddBlogPage() {
           required
         />
         <p className="text-xl mt-4">Blog Description</p>
-        <textarea
-          name="description"
-          onChange={onChangeHandler}
-          value={data.description}
-          className="w-full sm:w-[500px] mt-4 px-4 py-3 border"
-          type="text"
-          placeholder="write content here"
-          rows={6}
-          required
-        />
         <Tiptap onChange={setDescription} />
         <p className="text-xl mt-4">Blog category</p>
         <select

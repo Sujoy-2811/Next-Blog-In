@@ -4,12 +4,43 @@ import { useEditor, EditorContent } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import ToolBar from "./ToolBar";
 
+import Bold from "@tiptap/extension-bold";
+import Document from "@tiptap/extension-document";
+import Paragraph from "@tiptap/extension-paragraph";
+import Text from "@tiptap/extension-text";
+
+import Italic from "@tiptap/extension-italic";
+import Heading from "@tiptap/extension-heading";
+import OrderedList from "@tiptap/extension-ordered-list";
+import BulletList from "@tiptap/extension-bullet-list";
+
 const Tiptap = ({ onChange }) => {
   const editor = useEditor({
-    extensions: [StarterKit],
+    extensions: [
+      StarterKit,
+      Bold,
+      Document,
+      Paragraph,
+      Heading.configure({
+        HTMLAttributes: {
+          class: "text-xl font-bold",
+          level: [2],
+        },
+      }),
+      BulletList.configure({
+        HTMLAttributes: {
+          class: "list-disc",
+        },
+      }),
+      OrderedList.configure({
+        HTMLAttributes: {
+          class: "list-decimal",
+        },
+      }),
+    ],
     content: "",
     editorProps: {
-      attributes: { class: "w-full sm:w-[500px] mt-4 px-4 py-3 border" },
+      attributes: { class: "w-full  px-4 py-3 border" },
     },
     onUpdate({ editor }) {
       onChange(editor.getHTML());
@@ -18,7 +49,7 @@ const Tiptap = ({ onChange }) => {
   });
 
   return (
-    <div>
+    <div className="border w-full sm:w-[500px] mt-4  ">
       <ToolBar editor={editor} />
       <EditorContent editor={editor} />
     </div>
