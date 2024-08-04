@@ -1,11 +1,9 @@
-import React from 'react'
+import { redirect } from "next/navigation";
+import React from "react";
 
 const page = () => {
-  return (
-    <div>
-      
-    </div>
-  )
-}
+  redirect("/admin/blogList");
+  return null;
+};
 
-export default page
+export default page;

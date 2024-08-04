@@ -1,11 +1,13 @@
 "use client";
 import { assets } from "@/assets/assets";
+import Tiptap from "@/components/Tiptap";
 import axios from "axios";
 import Image from "next/image";
 import React, { useState } from "react";
 import { toast } from "react-toastify";
 
 export default function AddBlogPage() {
+  const [description, setDescription] = useState("");
   const [image, setImage] = useState(false);
   const [data, setData] = useState({
     title: "",
@@ -99,6 +101,7 @@ export default function AddBlogPage() {
           rows={6}
           required
         />
+        <Tiptap onChange={setDescription} />
         <p className="text-xl mt-4">Blog category</p>
         <select
           name="category"

@@ -2,11 +2,11 @@ import React from "react";
 
 const BlogItemPulseEffect = () => {
   return (
-    <div className="max-w-[330px] max-w-full  sm:w-[300px] h-[375px] sm:h- bg-white border border-black">
+    <div className="min-w-[328px]   sm:w-[300px] h-[375px]  bg-white border border-black">
       {" "}
       <div className="animate-pulse ">
         {/* image */}
-        <div className=" min-w-[250px] min-h-[150px] bg-slate-700"></div>
+        <div className=" w-full min-h-[150px] bg-slate-700"></div>
         {/* tag */}
         <div className="m-5 mt-5 px-1 bg-slate-700  h-[20px] text-sm"></div>
         {/* main content */}
