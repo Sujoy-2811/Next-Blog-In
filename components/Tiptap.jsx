@@ -40,7 +40,9 @@ const Tiptap = ({ onChange }) => {
     ],
     content: "",
     editorProps: {
-      attributes: { class: "w-full  px-4 py-3 border" },
+      attributes: {
+        class: "w-full  px-4 py-3 border min-h-[250px] ",
+      },
     },
     onUpdate({ editor }) {
       onChange(editor.getHTML());
