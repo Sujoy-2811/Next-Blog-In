@@ -9,7 +9,7 @@ export async function POST(request) {
   try {
     const formData = await request.formData();
     const imageFormData = new FormData();
-    const url = `${baseURL}${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload`;
+    const url = `${baseURL}${process.env.CLOUDINARY_CLOUD_NAME}/image/upload`;
     imageFormData.append("file", formData.get("file"));
     imageFormData.append("upload_preset", "next-blog-in");
     const imgResponse = await axios.post(url, imageFormData);
@@ -30,9 +30,9 @@ export async function POST(request) {
 export async function DELETE(request) {
   const cloudinaryUrl = await request.nextUrl.searchParams.get("url");
   const publicId = getPublicIdFromUrl(cloudinaryUrl);
-  const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
+  const cloudName = process.env.CLOUDINARY_CLOUD_NAME;
   const timestamp = new Date().getTime();
-  const apiKey = process.env.NEXT_PUBLIC_CLOUDINARY_API_KEY;
+  const apiKey = process.env.CLOUDINARY_API_KEY;
   const apiSecret = process.env.CLOUDINARY_API_SECRET;
   const signature = generateSHA1(generateSignature(publicId, apiSecret));
   const url = `${baseURL}${cloudName}/image/destroy`;
