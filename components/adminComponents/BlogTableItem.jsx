@@ -9,6 +9,7 @@ const BlogTableItem = ({
   date,
   deleteBlog,
   mongoId,
+  imageURl,
 }) => {
   const BlogDate = new Date(date);
   return (
@@ -28,7 +29,7 @@ const BlogTableItem = ({
       <td className="px-6 py-4">{title ? title : "no title"}</td>
       <td className="px-6 py-4">{BlogDate.toDateString()}</td>
       <td
-        onClick={() => deleteBlog(mongoId)}
+        onClick={() => deleteBlog({ mongoId, imageURl })}
         className="px-6 py-4 cursor-pointer"
       >
         x

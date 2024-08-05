@@ -12,7 +12,13 @@ export default function BlogList() {
     setBlogs(response.data.blogs);
   };
 
-  const deleteBlog = async (mongoId) => {
+  const deleteBlog = async ({ mongoId, imageURl }) => {
+    const deleteImg = await axios.delete("/api/image", {
+      params: {
+        url: imageURl,
+      },
+    });
+    console.log("🚀 ~ deleteBlog ~ deleteImg:", deleteImg);
     const response = await axios.delete("/api/blog", {
       params: {
         id: mongoId,
@@ -55,6 +61,7 @@ export default function BlogList() {
                   mongoId={item._id}
                   title={item.title}
                   author={item.author}
+                  imageURl={item.image}
                   authorImg={item.authorImg}
                   date={item.date}
                   deleteBlog={deleteBlog}
