@@ -3,20 +3,20 @@ import { assets } from "@/assets/assets";
 import Tiptap from "@/components/Tiptap";
 import axios from "axios";
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { toast } from "react-toastify";
 
 export default function AddBlogPage() {
+  const descRef = useRef();
   const [description, setDescription] = useState("");
   const [image, setImage] = useState(false);
   const [data, setData] = useState({
     title: "",
-    description: "",
     category: "Startup",
     author: "Alex Bennett",
     authorImg: "/author_img.png",
   });
-  const url = `https://api.cloudinary.com/v1_1/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload`;
+
   const onChangeHandler = (event) => {
     const name = event.target.name;
     const value = event.target.value;
@@ -29,10 +29,9 @@ export default function AddBlogPage() {
     //- image upload
     const imageFormData = new FormData();
     imageFormData.append("file", image);
-    imageFormData.append("upload_preset", "next-blog-in");
-    const imgResponse = await axios.post(url, imageFormData);
+    const imgResponse = await axios.post("/api/image", imageFormData);
     console.log(imgResponse.data);
-    const imgURL = imgResponse.data.secure_url;
+    const imgURL = imgResponse.data.url;
     console.log("upload");
     console.log(imgURL);
 
@@ -54,6 +53,8 @@ export default function AddBlogPage() {
         author: "Alex Bennett",
         authorImg: "/author_img.png",
       });
+      console.log("cleaning");
+      descRef.current.commands.clearContent();
     } else {
       toast.error("Error");
     }
@@ -91,7 +92,7 @@ export default function AddBlogPage() {
           required
         />
         <p className="text-xl mt-4">Blog Description</p>
-        <Tiptap onChange={setDescription} />
+        <Tiptap onChange={setDescription} ref={descRef} />
         <p className="text-xl mt-4">Blog category</p>
         <select
           name="category"

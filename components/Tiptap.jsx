@@ -1,5 +1,7 @@
 "use client";
 
+import { forwardRef, useImperativeHandle } from "react";
+
 import { useEditor, EditorContent } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import ToolBar from "./ToolBar";
@@ -14,7 +16,7 @@ import Heading from "@tiptap/extension-heading";
 import OrderedList from "@tiptap/extension-ordered-list";
 import BulletList from "@tiptap/extension-bullet-list";
 
-const Tiptap = ({ onChange }) => {
+const Tiptap = ({ onChange }, ref) => {
   const editor = useEditor({
     extensions: [
       StarterKit,
@@ -49,7 +51,7 @@ const Tiptap = ({ onChange }) => {
       console.log(editor.getHTML());
     },
   });
-
+  useImperativeHandle(ref, () => editor, [editor]);
   return (
     <div className="border w-full sm:w-[500px] mt-4  ">
       <ToolBar editor={editor} />
@@ -58,4 +60,4 @@ const Tiptap = ({ onChange }) => {
   );
 };
 
-export default Tiptap;
+export default forwardRef(Tiptap);
